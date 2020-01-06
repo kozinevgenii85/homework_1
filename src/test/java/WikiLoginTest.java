@@ -14,16 +14,33 @@ public class WikiLoginTest {
 
     }
     @Test
-    public void loginTest(){
+    public void loginTest() throws InterruptedException {
          driver.get("https://www.wikipedia.org/");
-
+         Thread.sleep(2000);
          driver.findElement(By.id("js-link-box-en")).click();
+        Thread.sleep(2000);
+        driver.findElement(By.id("pt-login")).click();
+        Thread.sleep(2000);
+        driver.findElement(By.id("wpName1")).click();
+        Thread.sleep(2000);
+        driver.findElement(By.id("wpName1")).sendKeys("Kozinevgenii");
+        Thread.sleep(2000);
+        driver.findElement(By.id("wpPassword1")).click();
+        Thread.sleep(2000);
+        driver.findElement(By.id("wpPassword1")).sendKeys("Stekla136");
+        Thread.sleep(2000);
+        driver.findElement(By.id("wpLoginAttempt")).click();
+
+
+
 
 
 
     }
     @AfterMethod
     public void tearDown(){
+        driver.close();
+
 
     }
 
